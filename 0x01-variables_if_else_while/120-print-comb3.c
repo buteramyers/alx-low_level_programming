@@ -7,11 +7,14 @@
  */
 int main(void)
 {
-	//string initialisation
-	char Mystr[] = "Lionel";	
-	
-	puts(Mystr);
+	int i = 0, k;
 
+	while(i < 11)
+	{
+		printf("%d", i);
+		++i;
 
-	return (0);
+		printf("\n");
+	}
+	return 0;
 }
