@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * reset_to_98 - re-assign a value to n
+ * @n: variable
  *
  * Return: Always 0 (success)
  */
