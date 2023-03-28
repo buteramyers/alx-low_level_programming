@@ -6,17 +6,8 @@
 
 int main()
 {
-	printf("Length: ");
-
-	int length;
-	scanf("%d", &length);
-
-	if (length <= 0)
-	{
-		printf("Password length must be >= 1!");
-		return 1;
-	}
-
+	int length = 0;
+	int i;
 	char *password = malloc(length + 1);
 
 	char *digits = "0123456789";
@@ -31,9 +22,20 @@ int main()
 	char *symbols = "!@#$%^&*?()";
 	int symbols_length = strlen(symbols);
 
+	printf("Length: ");
+
+	scanf("%d", &length);
+
+	if (length <= 0)
+	{
+		printf("Password length must be >= 1!");
+		return 1;
+	}
+
+	
 	srand(time(NULL) * getpid());
 
-	for (int i = 0; i < length; i++)
+	for (i = 0; i < length; i++)
 	{
 		int char_type = rand() % 4;
 
