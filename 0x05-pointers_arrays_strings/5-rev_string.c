@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * rev_string - prints the reverse of a string
@@ -7,19 +8,14 @@
  */
 void rev_string(char *s)
 {
-	int length, z, half;
+	int i;
+	int length = strlen(s);
 	char temp;
 
-	for (length = 0 ; s[length] != '\0' ; length++)
+	for (i = 0; i < (length / 2); i++)
 	{
-			z = 0;
-			half = length / 2;
-	}
-	while (half--)
-	{
-		temp = s[length - z - 1];
-		s[length - z - 1] = s[z];
-		s[z] = temp;
-		z++;
+		temp = s[i];
+		s[i] = s[length - i - 1];
+		s[length - i - 1] = temp;
 	}
 }

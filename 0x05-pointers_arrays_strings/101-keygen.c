@@ -3,39 +3,40 @@
 #include <stdlib.h>
 #include <time.h>
 
-//Function generating passwords of length X
+/*Function generating passwords of length X*/
 void randomPasswordGeneration(int X)
 {
-	//initialize counter
+	/*initialize counter*/
 	int i = 0;
 
 	int randomizer = 0;
 
-	// seed the random-number generator
-	// with current time so that the numbers
-	// will be different every time
-	srand((unsigned int)(time(NULL)));
+	/** seed the random-number generator
+	* with current time so that the numbers
+	* will be different every time
+	*srand((unsigned int)(time(NULL)));
+	*/
 
-	//Array of numbers
+	/*Array of numbers*/
 	char numbers[] = "0123456789";
 
-	// Array of small alphabets
+	/* Array of small alphabets*/
 	char letter[] = "abcdefghijklmnopqrstuvwxyz";
 
-	//Array of capital alphabets
+	/*Array of capital alphabets*/
 	char LETTER[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	
-	//Array of all the special symbols
+	/*Array of all the special symbols*/
 	char symbols[] = "!@#$%^&*?";
 
-	// Stores the random password
-	char password[X];
+	/* Stores the random password*/
+	int password[X];
 
-	// To select the randomizer
-	// inside the loop
+	/* To select the randomizer*/
+	/* inside the loop*/
 	randomizer = rand() % 4;
 
-	// Iterate over the range [0, X]
+	/* Iterate over the range [0, X]*/
 	for (i = 0; i < X; i++) {
 
 		if  (randomizer == 1) {
@@ -63,10 +64,10 @@ void randomPasswordGeneration(int X)
 
 int main()
 {
-	// length of the password to be generated
-	int X = 10;
+	/* length of the password to be generated*/
+	int X;
 
-	// Function Call
+	/** Function Call*/
 	randomPasswordGeneration(X);
 
 	printf("\n");
