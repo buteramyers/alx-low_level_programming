@@ -1,76 +1,57 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
-
-/*Function generating passwords of length X*/
-void randomPasswordGeneration(int X)
-{
-	/*initialize counter*/
-	int i = 0;
-
-	int randomizer = 0;
-
-	/** seed the random-number generator
-	* with current time so that the numbers
-	* will be different every time
-	*srand((unsigned int)(time(NULL)));
-	*/
-
-	/*Array of numbers*/
-	char numbers[] = "0123456789";
-
-	/* Array of small alphabets*/
-	char letter[] = "abcdefghijklmnopqrstuvwxyz";
-
-	/*Array of capital alphabets*/
-	char LETTER[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	
-	/*Array of all the special symbols*/
-	char symbols[] = "!@#$%^&*?";
-
-	/* Stores the random password*/
-	int password[X];
-
-	/* To select the randomizer*/
-	/* inside the loop*/
-	randomizer = rand() % 4;
-
-	/* Iterate over the range [0, X]*/
-	for (i = 0; i < X; i++) {
-
-		if  (randomizer == 1) {
-			password[i] = numbers[rand() % 10];
-			randomizer = rand() % 4;
-			printf("%c", password[i]);
-		}
-		else if (randomizer == 2) {
-			password[i] = symbols[rand() % 8];
-			randomizer = rand() % 4;
-			printf("%c", password[i]);
-		}
-		else if  (randomizer ==3) {
-			password[i] = LETTER[rand() % 26];
-			randomizer = rand() % 4;
-			printf("%c", password[i]);
-		}
-		else {
-			password[i] = letter[rand() % 26];
-			randomizer = rand() %4;
-			printf("%c", password[i]);
-		}
-	}
-}
+#include <unistd.h>
 
 int main()
 {
-	/* length of the password to be generated*/
-	int X;
+	printf("Length: ");
 
-	/** Function Call*/
-	randomPasswordGeneration(X);
+	int length;
+	scanf("%d", &length);
 
-	printf("\n");
+	if (length <= 0)
+	{
+		printf("Password length must be >= 1!");
+		return 1;
+	}
 
-	return 0;
+	char *password = malloc(length + 1);
+
+	char *digits = "0123456789";
+	int digits_length = strlen(digits);
+
+	char *lowers = "abcdefghijklmnopqrstuvwxyz";
+	int lowers_length = strlen(lowers);
+
+	char *uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int uppers_length = strlen(uppers);
+
+	char *symbols = "!@#$%^&*?()";
+	int symbols_length = strlen(symbols);
+
+	srand(time(NULL) * getpid());
+
+	for (int i = 0; i < length; i++)
+	{
+		int char_type = rand() % 4;
+
+		if (char_type == 0)
+			password[i] = digits[rand() % digits_length];
+		else if (char_type == 1)
+			password[i] = lowers[rand() % lowers_length];
+		else if (char_type == 2)
+			password[i] = uppers[rand() % uppers_length];
+		else 
+			password[i] = symbols[rand() % symbols_length];
+
+	}	
+	password[length] = '\0';
+
+	printf("Password: %s\n", password);
+
+	free(password);
+
+	return (0);
 }
