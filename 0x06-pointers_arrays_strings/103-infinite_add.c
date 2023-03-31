@@ -62,7 +62,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		else
 			overflow = 0;
 		if (digits >= (size_r - 1))
-			return (0);
+		return (0);
 		*(r + digits) = (temp_tot % 10) + '0';
 		digits++;
 		j--;
@@ -74,4 +74,3 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	rev_string(r);
 	return (r);
 }
-
