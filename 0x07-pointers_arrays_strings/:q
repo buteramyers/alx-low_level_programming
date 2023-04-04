@@ -1,0 +1,11 @@
+#include "main.h"
+
+/**
+ * print_diagsums - give the sum of the diagonals
+ * @a: pointer storing the arrays
+ * @size: variable
+ * return: void
+ */
+void print_diagsums(int *a, int size)
+{
+}
