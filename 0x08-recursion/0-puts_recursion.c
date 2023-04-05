@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _puts_recursion - prints the recursive string
@@ -8,11 +7,12 @@
  */
 void _puts_recursion(char *s)
 {
-	printf("%s\n", s);
-	s++;
-
 	if (*s == '\0')
 	{
-		_puts_recursion(s);
+		_putchar('\n');
+		return;
 	}
+	_putchar(*s);
+	s++;
+	_puts_recursion(s);
 }
