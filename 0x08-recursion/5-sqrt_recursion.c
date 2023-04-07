@@ -15,8 +15,9 @@ int _sqrt_help(int n, int i)
 	else
 		return (_sqrt_help(n, i + 1));
 }
+
  /**
-  * _sqrt_recursion - get the square root of the number
+  * _sqrt_recursion - get the square root of s given number
   * @n: number to be processed
   * Return: _sqrt_help
   */
