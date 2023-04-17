@@ -4,7 +4,7 @@
  * main - entry point
  * Return: void
  */
-int main()
+int main(void)
 {
 	printf("%s\n", __FILE__);
 
