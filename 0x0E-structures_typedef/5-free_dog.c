@@ -9,7 +9,7 @@
 void free_dog(dog_t *d)
 {
 	if (d == NULL)
-		exit(1);
+		return;/*close the program if d is empty*/
 	free(d->name);
 	free(d->owner);
 	free(d);
