@@ -9,14 +9,14 @@
  */
 void print_opcodes(char *addr, int size)
 {
-    int m = 0;
+	int m = 0;
 
-    while (m < size)
-    {
-        printf("%02hhx ", addr[m]);
-    	m++;
-    }
-    printf("\n");
+	while (m < size)
+	{
+		printf("%02hhx ", addr[m]);
+		m++;
+	}
+	printf("\n");
 }
 
 /**
@@ -27,29 +27,29 @@ void print_opcodes(char *addr, int size)
  */
 int main(int argc, char **argv)
 {
-    int m = 0;
-    int size;
+	int m = 0;
+	int size;
 
-    if (argc != 2)
-    {
-        printf("Error\n");
-        exit(1);
-    }
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
-    size = atoi(argv[1]);
+	size = atoi(argv[1]);
 
-    if (size < 0)
-    {
-        printf("Error\n");
-        exit(2);
-    }
+	if (size < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
 
-    while (m < size)
-    {
-        printf("%02hhx ", ((char *)main)[m]);
-    	m++;
-    }
-    printf("\n");
+	while (m < size)
+	{
+		printf("%02hhx ", ((char *)main)[m]);
+		m++;
+	}
+	printf("\n");
 
-    return (0);
+	return (0);
 }
