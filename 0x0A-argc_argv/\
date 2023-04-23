@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main entry point
+ * @argc: argument count
+ * @argv: array of strings
+ * Return: 0
+ */
+int main(int argc, char *argv[])
+{
+	int m, sum, num;
+
+	if (argc == 1)
+	{
+		printf("0\n");
+		return (1);
+	}
+
+	sum = 0;
+
+	for (m = 1; m < argc; m++)
+	{
+		num = atoi(argv[m]);
+		if (num > 0)
+		{
+			sum += num;
+		}
+	}
+	printf("%d\n", sum);
+	return (0);
+}
