@@ -13,8 +13,6 @@ void free_listint(listint_t *head)
 	{
 		cache = head->next;
 		free(head);
-		free(head->next);
-		free(cache);
 		head = cache;
 	}
 }
