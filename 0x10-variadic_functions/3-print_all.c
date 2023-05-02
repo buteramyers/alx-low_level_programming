@@ -19,8 +19,7 @@ void print_all(const char * const format, ...)
 		c = format[i];
 		if (c == 'c' || c == 'i' || c == 'f' || c == 's')
 		{
-			if (flag)
-				printf(", ");
+			printf("%s", flag ? ", " : "");
 			flag = 1;
 			switch (c)
 			{
@@ -35,10 +34,7 @@ void print_all(const char * const format, ...)
 					break;
 				case 's':
 					s = va_arg(ap, char *);
-					if (s == NULL)
-						printf("(nil)");
-					else
-						printf("%s", s);
+					printf("%s", s ? s:"(nil)");
 					break;
 			}
 		}
